@@ -74,8 +74,3 @@ If you use this implementation in your research, please cite:
   url = {https://github.com/yourusername/naive-bayes-classifier}
 }
 ```
-
-## Acknowledgments
-
-- Inspired by scikit-learn's implementation of Naive Bayes
-- Thanks to all contributors who helped improve this project
