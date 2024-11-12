@@ -22,7 +22,7 @@ def calculate_prior_probabilities(df):
 
 
 # Calculate likelihoods with Laplace smoothing for each feature value given a class
-def calculate_likelihoods(df):
+def calculate_likelihoods(df, alpha=1):
     # Use a nested dictionary to store the likelihoods
     likelihoods = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
     
@@ -36,8 +36,8 @@ def calculate_likelihoods(df):
             for cls in class_counts:
                 # Count the number of times the feature value occurs for a given class
                 count = len(df[(df[feature] == value) & (df['PlayTennis'] == cls)])
-                # Apply Laplace smoothing: (count + 1) / (class_count + num_of_unique_values)
-                likelihoods[feature][value][cls] = (count + 1) / (class_counts[cls] + len(feature_values))
+                # Apply Laplace smoothing with the alpha parameter
+                likelihoods[feature][value][cls] = (count + alpha) / (class_counts[cls] + alpha * len(feature_values))
     
     return likelihoods
 
