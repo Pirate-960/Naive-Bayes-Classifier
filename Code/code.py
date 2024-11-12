@@ -1,7 +1,7 @@
 import pandas as pd
+import numpy as np
 import json
 from collections import defaultdict
-import numpy as np
 
 
 # Load the dataset from a CSV file
