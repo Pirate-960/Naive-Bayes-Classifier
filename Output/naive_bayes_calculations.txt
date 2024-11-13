@@ -1,0 +1,534 @@
+Detailed Calculation Steps for Each Instance
+===========================================
+
+--- Making Prediction ---
+Instance to predict: {'Day': 1, 'Outlook': 'Sunny', 'Temperature': 'Hot', 'Humidity': 'High', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 1
+  Value '1' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -3.214421
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.226022
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.040068
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -4.678008
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -3.887366
+
+Final Scores:
+  Class 'Yes': -4.678008
+  Class 'No': -3.887366
+
+Predicted class: No
+
+--- Making Prediction ---
+Instance to predict: {'Day': 2, 'Outlook': 'Sunny', 'Temperature': 'Hot', 'Humidity': 'High', 'Wind': 'Strong'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 2
+  Value '2' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -3.214421
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.226022
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.040068
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -5.237623
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -3.599684
+
+Final Scores:
+  Class 'Yes': -5.237623
+  Class 'No': -3.599684
+
+Predicted class: No
+
+--- Making Prediction ---
+Instance to predict: {'Day': 3, 'Outlook': 'Overcast', 'Temperature': 'Hot', 'Humidity': 'High', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 3
+  Value '3' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -4.089890
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.715197
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -4.426362
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -4.167182
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.273660
+
+Final Scores:
+  Class 'Yes': -4.167182
+  Class 'No': -5.273660
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 4, 'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 4
+  Value '4' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.991278
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.427515
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.327750
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.879500
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -4.175048
+
+Final Scores:
+  Class 'Yes': -3.879500
+  Class 'No': -4.175048
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 5, 'Outlook': 'Rain', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 5
+  Value '5' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.639057
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -3.396743
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.091042
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.649506
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.543028
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.496804
+
+Final Scores:
+  Class 'Yes': -3.543028
+  Class 'No': -5.496804
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 6, 'Outlook': 'Rain', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Strong'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 6
+  Value '6' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.639057
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -3.396743
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.091042
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.649506
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.102643
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -5.209122
+
+Final Scores:
+  Class 'Yes': -4.102643
+  Class 'No': -5.209122
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 7, 'Outlook': 'Overcast', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Strong'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 7
+  Value '7' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -4.495355
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -2.867899
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -5.748118
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.879500
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -6.307734
+
+Final Scores:
+  Class 'Yes': -3.879500
+  Class 'No': -6.307734
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 8, 'Outlook': 'Sunny', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 8
+  Value '8' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.715197
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.040068
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -4.167182
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -3.887366
+
+Final Scores:
+  Class 'Yes': -4.167182
+  Class 'No': -3.887366
+
+Predicted class: No
+
+--- Making Prediction ---
+Instance to predict: {'Day': 9, 'Outlook': 'Sunny', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 9
+  Value '9' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.926739
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.378725
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.361824
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.830710
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.209122
+
+Final Scores:
+  Class 'Yes': -3.830710
+  Class 'No': -5.209122
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 10, 'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'Normal', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 10
+  Value '10' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.991278
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -2.867899
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.244041
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.319884
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.091339
+
+Final Scores:
+  Class 'Yes': -3.319884
+  Class 'No': -5.091339
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 11, 'Outlook': 'Sunny', 'Temperature': 'Mild', 'Humidity': 'Normal', 'Wind': 'Strong'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 11
+  Value '11' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.155581
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -3.956359
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.167182
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -4.515975
+
+Final Scores:
+  Class 'Yes': -4.167182
+  Class 'No': -4.515975
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 12, 'Outlook': 'Overcast', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Strong'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 12
+  Value '12' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.192770
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -4.089890
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.204371
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -4.426362
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.215972
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -4.985978
+
+Final Scores:
+  Class 'Yes': -4.215972
+  Class 'No': -4.985978
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 13, 'Outlook': 'Overcast', 'Temperature': 'Hot', 'Humidity': 'Normal', 'Wind': 'Weak'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 13
+  Value '13' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -4.089890
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.155581
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -5.342653
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.607566
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -6.189951
+
+Final Scores:
+  Class 'Yes': -3.607566
+  Class 'No': -6.189951
+
+Predicted class: Yes
+
+--- Making Prediction ---
+Instance to predict: {'Day': 14, 'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Strong'}
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 14
+  Value '14' not found in likelihoods. Using smoothing.
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.991278
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.427515
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.327750
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.439116
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -3.887366
+
+Final Scores:
+  Class 'Yes': -4.439116
+  Class 'No': -3.887366
+
+Predicted class: No
