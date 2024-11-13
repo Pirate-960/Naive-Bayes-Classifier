@@ -7,43 +7,69 @@ from collections import defaultdict
 # Load the dataset from a CSV file
 def load_data(file_path):
     # Read the data from the specified CSV file and return it as a DataFrame
-    return pd.read_csv(file_path)
-
+    print(f"\n--- Loading Data from {file_path} ---\n")
+    # Using pandas to read the CSV file and load it into a DataFrame
+    df = pd.read_csv(file_path)
+    # Print the DataFrame to show the loaded data
+    print(df)
+    print("\nData loaded successfully.\n")
+    # Return the DataFrame containing the loaded data
+    return df
 
 # Calculate the prior probabilities for each class in the target variable
 def calculate_prior_probabilities(df):
-    # Count the occurrences of each class (Yes or No) in the 'PlayTennis' column
+    print("\n--- Calculating Prior Probabilities ---\n")
+    # Count the number of instances for each class ('Yes' and 'No') in the 'PlayTennis' column
     class_counts = df['PlayTennis'].value_counts().to_dict()
+    # Total number of instances in the dataset
     total_count = len(df)
     
-    # Compute the prior probability for each class
+    # Calculate the prior probability for each class
     priors = {cls: count / total_count for cls, count in class_counts.items()}
+    
+    # Print each prior probability with an explanation
+    for cls, prob in priors.items():
+        print(f"Prior Probability of class '{cls}' (P({cls})) = {prob:.6f}")
+    
+    print("\nPrior probabilities calculated successfully.\n")
+    # Return the dictionary of prior probabilities
     return priors
 
-
 # Calculate likelihoods with Laplace smoothing for each feature value given a class
-def calculate_likelihoods(df, alpha=1):
-    # Use a nested dictionary to store the likelihoods
+def calculate_likelihoods(df):
+    print("\n--- Calculating Likelihoods with Laplace Smoothing ---\n")
+    # Use a nested dictionary to store likelihoods in the format: likelihoods[feature][value][class]
     likelihoods = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
     
-    # Count the occurrences of each class in the target variable
+    # Count the number of instances for each class in the target variable
     class_counts = df['PlayTennis'].value_counts().to_dict()
     
-    # Iterate over each feature (excluding the target variable)
-    for feature in df.columns[:-1]:  
-        feature_values = df[feature].unique()  # Get unique values of the feature
+    # Iterate over each feature (excluding the target variable 'PlayTennis')
+    for feature in df.columns[:-1]:
+        print(f"Processing feature: {feature}")
+        # Get unique values of the feature
+        feature_values = df[feature].unique()
+        
+        # For each unique value of the feature, calculate the likelihood for each class
         for value in feature_values:
             for cls in class_counts:
-                # Count the number of times the feature value occurs for a given class
+                # Count the occurrences of the feature value for the given class
                 count = len(df[(df[feature] == value) & (df['PlayTennis'] == cls)])
-                # Apply Laplace smoothing with the alpha parameter
-                likelihoods[feature][value][cls] = (count + alpha) / (class_counts[cls] + alpha * len(feature_values))
+                # Apply Laplace smoothing: (count + 1) / (class_count + number of unique feature values)
+                smoothed_likelihood = (count + 1) / (class_counts[cls] + len(feature_values))
+                likelihoods[feature][value][cls] = smoothed_likelihood  # Store the likelihood
+                
+                # Print the calculation with a detailed explanation
+                print(f"  P({feature}={value} | {cls}) = (count + 1) / (class_count + num_values)")
+                print(f"  = ({count} + 1) / ({class_counts[cls]} + {len(feature_values)}) = {smoothed_likelihood:.6f}")
+        print()  # Print a blank line for better readability
     
-    return likelihoods
-
+    print("\nLikelihoods calculated successfully.\n")
+    return likelihoods  # Return the dictionary of likelihoods
 
 # Train the Naive Bayes classifier and save the model
 def train_naive_bayes(file_path):
+    print("\n--- Training Naive Bayes Classifier ---\n")
     # Load the dataset
     df = load_data(file_path)
     
@@ -51,7 +77,7 @@ def train_naive_bayes(file_path):
     priors = calculate_prior_probabilities(df)
     likelihoods = calculate_likelihoods(df)
     
-    # Convert keys to strings for JSON compatibility
+    # Convert dictionary keys to strings for JSON compatibility
     priors = {str(k): v for k, v in priors.items()}
     likelihoods = {
         feature: {str(value): {str(cls): prob for cls, prob in class_probs.items()} 
@@ -62,107 +88,164 @@ def train_naive_bayes(file_path):
     # Create the model as a dictionary containing priors and likelihoods
     model = {"priors": priors, "likelihoods": likelihoods}
     
-    # Save the model to a JSON file with formatted output
+    # Save the model to a JSON file for future use
     with open('Output/naive_bayes_model.json', 'w') as file:
-        json.dump(model, file, indent = 4)  # Using indent=4 for formatting
+        # Save with formatted JSON for readability
+        json.dump(model, file, indent=4)  
     
-    print("Model trained and saved to naive_bayes_model.json")
+    print("Model trained and saved to naive_bayes_model.json.\n")
+    # Return the model for use in predictions
+    return model
 
-
-
-# Predict the class for a single instance using the trained model
 def predict(instance):
+    print("\n--- Making Prediction ---\n")
     # Load the model from the JSON file
     with open('Output/naive_bayes_model.json', 'r') as file:
         model = json.load(file)
     
-    # Extract priors and likelihoods from the model
+    # Extract prior probabilities and likelihoods from the model
     priors = model["priors"]
     likelihoods = model["likelihoods"]
     
-    # Initialize the scores for each class with the log of the prior probabilities
-    scores = {cls: np.log(prior) for cls, prior in priors.items()}
+    print(f"Instance to predict: {instance}\n")
+    calculation_steps = []  # List to store calculation steps for the log file
+    calculation_steps.append("\n--- Making Prediction ---\n")
+    calculation_steps.append(f"Instance to predict: {instance}\n")
     
-    # Iterate over each feature in the instance and update the scores
+    scores = {}  # Dictionary to store the log scores for each class
+    
+    # Initialize the scores with the log of the prior probabilities
+    for cls, prior in priors.items():
+        # Use log to avoid underflow with small probabilities
+        scores[cls] = np.log(prior)
+        explanation = f"Initial score for class '{cls}' (Log(P({cls}))) = {scores[cls]:.6f}"
+        print(explanation)
+        calculation_steps.append(explanation + "\n")
+    
+    # Update the scores using the likelihoods for each feature
     for feature, value in instance.items():
+        print(f"\nProcessing feature: {feature} | Value: {value}")
+        calculation_steps.append(f"\nProcessing feature: {feature} | Value: {value}\n")
+        
         if feature in likelihoods and value in likelihoods[feature]:
+            # If the feature value exists in the model, use the likelihood
             for cls in scores:
-                # Add the log of the likelihood to the score for each class
-                scores[cls] += np.log(likelihoods[feature][value].get(cls, 1e-6))  # 1e-6 for smoothing
+                # Get the likelihood for the feature value given the class
+                # 1e-6 to handle missing values in the likelihoods
+                likelihood = likelihoods[feature][value].get(cls, 1e-6)
+                explanation = (
+                    f"  P({feature}={value} | {cls}) = {likelihood:.6f}\n"
+                    f"  Updated score for class '{cls}' = {scores[cls] + np.log(likelihood):.6f}"
+                )
+                print(explanation)
+                calculation_steps.append(explanation + "\n")
+                
+                # Update the score using log-likelihood
+                scores[cls] += np.log(likelihood)
+        else:
+            # If the feature value is not found, print a message about using smoothing
+            message = f"  Value '{value}' not found in likelihoods. Using smoothing.\n"
+            print(message)
+            calculation_steps.append(message)
     
-    # Choose the class with the highest score as the predicted class
+    # Determine the class with the highest score
     predicted_class = max(scores, key=scores.get)
+    print("\nFinal Scores:")
+    calculation_steps.append("\nFinal Scores:\n")
+    
+    for cls, score in scores.items():
+        result = f"  Class '{cls}': {score:.6f}"
+        print(result)
+        calculation_steps.append(result + "\n")
+    
+    final_result = f"\nPredicted class: {predicted_class}\n"
+    print(final_result)
+    calculation_steps.append(final_result)
+    
+    # Write all calculation steps to the calculations file
+    with open('Output/naive_bayes_calculations.txt', 'a') as calc_file:
+        calc_file.writelines(calculation_steps)
+    
+    # Return the predicted class and scores for further analysis
     return predicted_class, scores
 
-
 def cross_validate(file_path):
+    print("\n--- Cross-Validation ---\n")
     # Load the dataset
     df = load_data(file_path)
-    correct_predictions = 0  # Counter for correct predictions
+    # Counter for the number of correct predictions
+    correct_predictions = 0
+    # Total number of instances
     total_instances = len(df)
     
-    # List to store results for the table
-    results = []
+    # Prepare the header for the log file
+    log_lines = []
+    log_lines.append("\n--------------------------------------------------")
+    log_lines.append("| Instance |   Actual   | Predicted  | Correct  |")
+    log_lines.append("--------------------------------------------------")
+    
+    # Clear the calculations file before writing new content
+    with open('Output/naive_bayes_calculations.txt', 'w') as calc_file:
+        calc_file.write("Detailed Calculation Steps for Each Instance\n")
+        calc_file.write("===========================================\n")
     
     # Iterate over each instance in the dataset
     for index, row in df.iterrows():
-        # Use all instances except the current one for training
+        print(f"\n--- Instance {index + 1} ---")
+        # Remove the current instance from the dataset to train the model
+        # Use all other instances for training
         train_df = df.drop(index)
-        test_instance = row.to_dict()  # Convert the row to a dictionary
-        actual_class = test_instance.pop('PlayTennis')  # Remove the class label for prediction
         
-        # Train the model on the training set
+        # Convert the row to a dictionary for prediction
+        test_instance = row.to_dict()
+
+        # Extract the actual class label for the test instance - Remove the actual class label from the test instance
+        actual_class = test_instance.pop('PlayTennis')
+        
+        print("\nTraining model on remaining instances...\n")
+        # Train the model on the training data
         priors = calculate_prior_probabilities(train_df)
         likelihoods = calculate_likelihoods(train_df)
         model = {"priors": priors, "likelihoods": likelihoods}
         
-        # Make a prediction for the test instance
-        predicted_class, scores = predict(test_instance)
-        
-        # Check if the prediction is correct
+        # Make a prediction for the test instance and log calculation steps
+        predicted_class, _ = predict(test_instance)
+        # Check if the prediction is correct and print the result
         correct = (predicted_class == actual_class)
+        print(f"Actual class: {actual_class} | Predicted class: {predicted_class} | Correct: {correct}\n")
+        
+        # Format the results for the log
+        log_line = f"| {index + 1:^8} | {actual_class:^10} | {predicted_class:^10} | {str(correct):^8} |"
+        log_lines.append(log_line)
+        
         if correct:
+            # Increment the correct predictions counter
             correct_predictions += 1
-        
-        # Add result to the results list
-        results.append([index + 1, actual_class, predicted_class, "Yes" if correct else "No"])
     
-    # Calculate the overall accuracy
+    # Calculate and print the overall accuracy
     accuracy = correct_predictions / total_instances
+    log_lines.append("--------------------------------------------------")
+    log_lines.append(f"\nOverall Accuracy: {accuracy:.2f}\n")
     
-    # Create a DataFrame for the results
-    results_df = pd.DataFrame(results, columns=["Instance", "Actual", "Predicted", "Correct"])
+    # Print the log lines to the console
+    for line in log_lines:
+        print(line)
     
-    # Print the results in a tabular format to the console with borders
-    print("\n" + "-" * 50)
-    print("| {:^8} | {:^10} | {:^10} | {:^8} |".format("Instance", "Actual", "Predicted", "Correct"))
-    print("-" * 50)
-    
-    for row in results:
-        print("| {:^8} | {:^10} | {:^10} | {:^8} |".format(*row))
-    
-    print("-" * 50)
-    print(f"\nOverall Accuracy: {accuracy:.2f}\n")
-    
-    # Save the results and accuracy to a log file in a bordered table format
+    # Write the log lines to the log file
     with open('Output/naive_bayes_log.txt', 'w') as log_file:
-        log_file.write("-" * 50 + "\n")
-        log_file.write("| {:^8} | {:^10} | {:^10} | {:^8} |\n".format("Instance", "Actual", "Predicted", "Correct"))
-        log_file.write("-" * 50 + "\n")
-        
-        for row in results:
-            log_file.write("| {:^8} | {:^10} | {:^10} | {:^8} |\n".format(*row))
-        
-        log_file.write("-" * 50 + "\n")
-        log_file.write(f"\nOverall Accuracy: {accuracy:.2f}\n")
+        log_file.write("\n".join(log_lines))
     
-    print("Cross-Validation completed. Results logged in Output/naive_bayes_log.txt")
+    print("\nResults logged in Output/naive_bayes_log.txt\n")
+    # Return the accuracy
+    return accuracy
 
 
 # Main function to run the training and evaluation
 if __name__ == "__main__":
+    # Train the model and evaluate it using cross-validation
+
     # Train the model on the "Play Tennis" dataset
     train_naive_bayes('Dataset/play_tennis.csv')
-    
-    # Perform cross-validation and log the results
+
+    # Cross-validate the model on the "Play Tennis" dataset and log the results
     cross_validate('Dataset/play_tennis.csv')
