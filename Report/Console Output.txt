@@ -1,0 +1,2505 @@
+PS D:\Github Projects\Machine Learning\Naive-Bayes-Classifier\Code> python Code_Cmd.py
+
+--- Training Naive Bayes Classifier ---
+
+
+--- Loading Data from D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Dataset/play_tennis.csv ---
+
+    Day   Outlook Temperature Humidity    Wind PlayTennis
+0     1     Sunny         Hot     High    Weak         No
+1     2     Sunny         Hot     High  Strong         No
+2     3  Overcast         Hot     High    Weak        Yes
+3     4      Rain        Mild     High    Weak        Yes
+4     5      Rain        Cool   Normal    Weak        Yes
+5     6      Rain        Cool   Normal  Strong         No
+6     7  Overcast        Cool   Normal  Strong        Yes
+7     8     Sunny        Mild     High    Weak         No
+8     9     Sunny        Cool   Normal    Weak        Yes
+9    10      Rain        Mild   Normal    Weak        Yes
+10   11     Sunny        Mild   Normal  Strong        Yes
+11   12  Overcast        Mild     High  Strong        Yes
+12   13  Overcast         Hot   Normal    Weak        Yes
+13   14      Rain        Mild     High  Strong         No
+
+Data loaded successfully and written to output file.
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.642857
+Prior Probability of class 'No' (P(No)) = 0.357143
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 14) = 0.043478
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 14) = 0.105263
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 14) = 0.043478
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 14) = 0.105263
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 14) = 0.043478
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 14) = 0.105263
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 14) = 0.043478
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 14) = 0.105263
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 14) = 0.086957
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 14) = 0.052632
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 14) = 0.043478
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 14) = 0.105263
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+Model trained and saved to naive_bayes_model.json.
+
+
+--- Cross-Validation ---
+
+
+--- Loading Data from D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Dataset/play_tennis.csv ---
+
+    Day   Outlook Temperature Humidity    Wind PlayTennis
+0     1     Sunny         Hot     High    Weak         No
+1     2     Sunny         Hot     High  Strong         No
+2     3  Overcast         Hot     High    Weak        Yes
+3     4      Rain        Mild     High    Weak        Yes
+4     5      Rain        Cool   Normal    Weak        Yes
+5     6      Rain        Cool   Normal  Strong         No
+6     7  Overcast        Cool   Normal  Strong        Yes
+7     8     Sunny        Mild     High    Weak         No
+8     9     Sunny        Cool   Normal    Weak        Yes
+9    10      Rain        Mild   Normal    Weak        Yes
+10   11     Sunny        Mild   Normal  Strong        Yes
+11   12  Overcast        Mild     High  Strong        Yes
+12   13  Overcast         Hot   Normal    Weak        Yes
+13   14      Rain        Mild     High  Strong         No
+
+Data loaded successfully and written to output file.
+
+
+--- Instance 1 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.692308
+Prior Probability of class 'No' (P(No)) = 0.307692
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 3) = 0.142857
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 2) = 0.666667
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 2) = 0.333333
+
+Processing feature: Wind
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 2) = 0.666667
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 2) = 0.333333
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 1, 'Outlook': 'Sunny', 'Temperature': 'Hot', 'Humidity': 'High', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 1
+  Value '1' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -3.214421
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.226022
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.040068
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -4.678008
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -3.887366
+
+Final Scores:
+  Class 'Yes': -4.678008
+  Class 'No': -3.887366
+
+Predicted class: No
+
+Actual class: No | Predicted class: No | Correct: True
+
+
+--- Instance 2 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.692308
+Prior Probability of class 'No' (P(No)) = 0.307692
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 3) = 0.142857
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 2) = 0.666667
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 2) = 0.333333
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 2) = 0.500000
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 2) = 0.500000
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 2, 'Outlook': 'Sunny', 'Temperature': 'Hot', 'Humidity': 'High', 'Wind': 'Strong'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 2
+  Value '2' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -3.214421
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.226022
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.040068
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -5.237623
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -3.599684
+
+Final Scores:
+  Class 'Yes': -5.237623
+  Class 'No': -3.599684
+
+Predicted class: No
+
+Actual class: No | Predicted class: No | Correct: True
+
+
+--- Instance 3 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 3) = 0.181818
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 2) = 0.300000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (8 + 2) = 0.700000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 3, 'Outlook': 'Overcast', 'Temperature': 'Hot', 'Humidity': 'High', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 3
+  Value '3' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -4.089890
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.715197
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -4.426362
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -4.167182
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.273660
+
+Final Scores:
+  Class 'Yes': -4.167182
+  Class 'No': -5.273660
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 4 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 2) = 0.300000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (8 + 2) = 0.700000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 4, 'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 4
+  Value '4' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.991278
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.427515
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.327750
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.879500
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -4.175048
+
+Final Scores:
+  Class 'Yes': -3.879500
+  Class 'No': -4.175048
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 5 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 5, 'Outlook': 'Rain', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 5
+  Value '5' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.639057
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -3.396743
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.091042
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.649506
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.543028
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.496804
+
+Final Scores:
+  Class 'Yes': -3.543028
+  Class 'No': -5.496804
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 6 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.692308
+Prior Probability of class 'No' (P(No)) = 0.307692
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 3) = 0.571429
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 3) = 0.142857
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 3) = 0.142857
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (4 + 2) = 0.833333
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 2) = 0.166667
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 2) = 0.500000
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 2) = 0.500000
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 6, 'Outlook': 'Rain', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Strong'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 6
+  Value '6' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.639057
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -3.396743
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.091042
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.649506
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.102643
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -5.209122
+
+Final Scores:
+  Class 'Yes': -4.102643
+  Class 'No': -5.209122
+
+Predicted class: Yes
+
+Actual class: No | Predicted class: Yes | Correct: False
+
+
+--- Instance 7 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (8 + 2) = 0.700000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 2) = 0.300000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 7, 'Outlook': 'Overcast', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Strong'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 7
+  Value '7' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -4.495355
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -2.867899
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -5.748118
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.879500
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -6.307734
+
+Final Scores:
+  Class 'Yes': -3.879500
+  Class 'No': -6.307734
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 8 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.692308
+Prior Probability of class 'No' (P(No)) = 0.307692
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 3) = 0.142857
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 2) = 0.666667
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 2) = 0.333333
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 2) = 0.333333
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 2) = 0.666667
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 8, 'Outlook': 'Sunny', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 8
+  Value '8' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.715197
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.040068
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -4.167182
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -3.887366
+
+Final Scores:
+  Class 'Yes': -4.167182
+  Class 'No': -3.887366
+
+Predicted class: No
+
+Actual class: No | Predicted class: No | Correct: True
+
+
+--- Instance 9 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 3) = 0.181818
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 9, 'Outlook': 'Sunny', 'Temperature': 'Cool', 'Humidity': 'Normal', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 9
+  Value '9' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Cool
+  P(Temperature=Cool | Yes) = 0.333333
+  Updated score for class 'Yes' = -2.926739
+  P(Temperature=Cool | No) = 0.250000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.378725
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.361824
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.830710
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.209122
+
+Final Scores:
+  Class 'Yes': -3.830710
+  Class 'No': -5.209122
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 10 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 10, 'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'Normal', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 10
+  Value '10' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.991278
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -2.867899
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -4.244041
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.319884
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -5.091339
+
+Final Scores:
+  Class 'Yes': -3.319884
+  Class 'No': -5.091339
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 11 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 3) = 0.181818
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (8 + 2) = 0.700000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 2) = 0.300000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 11, 'Outlook': 'Sunny', 'Temperature': 'Mild', 'Humidity': 'Normal', 'Wind': 'Strong'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 11
+  Value '11' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Sunny
+  P(Outlook=Sunny | Yes) = 0.250000
+  Updated score for class 'Yes' = -1.828127
+  P(Outlook=Sunny | No) = 0.500000
+  Updated score for class 'No' = -1.722767
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.703596
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.155581
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -3.956359
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.167182
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -4.515975
+
+Final Scores:
+  Class 'Yes': -4.167182
+  Class 'No': -4.515975
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 12 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 2) = 0.300000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (8 + 2) = 0.700000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (8 + 2) = 0.700000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 2) = 0.300000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 12, 'Outlook': 'Overcast', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Strong'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 12
+  Value '12' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.192770
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -4.089890
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.204371
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -4.426362
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.215972
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -4.985978
+
+Final Scores:
+  Class 'Yes': -4.215972
+  Class 'No': -4.985978
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 13 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.615385
+Prior Probability of class 'No' (P(No)) = 0.384615
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 13) = 0.095238
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 13) = 0.055556
+  P(Day=14 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (8 + 13) = 0.047619
+  P(Day=14 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 13) = 0.111111
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (8 + 3) = 0.272727
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 3) = 0.500000
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (5 + 3) = 0.125000
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (8 + 3) = 0.181818
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (8 + 3) = 0.454545
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 3) = 0.375000
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 3) = 0.363636
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 3) = 0.250000
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (5 + 2) = 0.714286
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (5 + 2) = 0.285714
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (5 + 1) / (8 + 2) = 0.600000
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (5 + 2) = 0.428571
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (8 + 2) = 0.400000
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (5 + 2) = 0.571429
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 13, 'Outlook': 'Overcast', 'Temperature': 'Hot', 'Humidity': 'Normal', 'Wind': 'Weak'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 13
+  Value '13' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Overcast
+  P(Outlook=Overcast | Yes) = 0.416667
+  Updated score for class 'Yes' = -1.317301
+  P(Outlook=Overcast | No) = 0.125000
+  Updated score for class 'No' = -3.109061
+
+Processing feature: Temperature | Value: Hot
+  P(Temperature=Hot | Yes) = 0.250000
+  Updated score for class 'Yes' = -2.703596
+  P(Temperature=Hot | No) = 0.375000
+  Updated score for class 'No' = -4.089890
+
+Processing feature: Humidity | Value: Normal
+  P(Humidity=Normal | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.155581
+  P(Humidity=Normal | No) = 0.285714
+  Updated score for class 'No' = -5.342653
+
+Processing feature: Wind | Value: Weak
+  P(Wind=Weak | Yes) = 0.636364
+  Updated score for class 'Yes' = -3.607566
+  P(Wind=Weak | No) = 0.428571
+  Updated score for class 'No' = -6.189951
+
+Final Scores:
+  Class 'Yes': -3.607566
+  Class 'No': -6.189951
+
+Predicted class: Yes
+
+Actual class: Yes | Predicted class: Yes | Correct: True
+
+
+--- Instance 14 ---
+
+Training model on remaining instances...
+
+
+--- Calculating Prior Probabilities ---
+
+Prior Probability of class 'Yes' (P(Yes)) = 0.692308
+Prior Probability of class 'No' (P(No)) = 0.307692
+
+Prior probabilities calculated successfully.
+
+
+--- Calculating Likelihoods with Laplace Smoothing ---
+
+Processing feature: Day
+  P(Day=1 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=1 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=2 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=2 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=3 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=3 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=4 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=4 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=5 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=5 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=6 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=6 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=7 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=7 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=8 | Yes) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (9 + 13) = 0.045455
+  P(Day=8 | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 13) = 0.117647
+  P(Day=9 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=9 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=10 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=10 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=11 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=11 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=12 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=12 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+  P(Day=13 | Yes) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (9 + 13) = 0.090909
+  P(Day=13 | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 13) = 0.058824
+
+Processing feature: Outlook
+  P(Outlook=Sunny | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Outlook=Sunny | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 3) = 0.571429
+  P(Outlook=Overcast | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Outlook=Overcast | No) = (count + 1) / (class_count + num_values)
+  = (0 + 1) / (4 + 3) = 0.142857
+  P(Outlook=Rain | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Outlook=Rain | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+
+Processing feature: Temperature
+  P(Temperature=Hot | Yes) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (9 + 3) = 0.250000
+  P(Temperature=Hot | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 3) = 0.428571
+  P(Temperature=Mild | Yes) = (count + 1) / (class_count + num_values)
+  = (4 + 1) / (9 + 3) = 0.416667
+  P(Temperature=Mild | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+  P(Temperature=Cool | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 3) = 0.333333
+  P(Temperature=Cool | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 3) = 0.285714
+
+Processing feature: Humidity
+  P(Humidity=High | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Humidity=High | No) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (4 + 2) = 0.666667
+  P(Humidity=Normal | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Humidity=Normal | No) = (count + 1) / (class_count + num_values)
+  = (1 + 1) / (4 + 2) = 0.333333
+
+Processing feature: Wind
+  P(Wind=Weak | Yes) = (count + 1) / (class_count + num_values)
+  = (6 + 1) / (9 + 2) = 0.636364
+  P(Wind=Weak | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 2) = 0.500000
+  P(Wind=Strong | Yes) = (count + 1) / (class_count + num_values)
+  = (3 + 1) / (9 + 2) = 0.363636
+  P(Wind=Strong | No) = (count + 1) / (class_count + num_values)
+  = (2 + 1) / (4 + 2) = 0.500000
+
+
+Likelihoods calculated successfully.
+
+
+--- Making Prediction ---
+
+Instance to predict: {'Day': 14, 'Outlook': 'Rain', 'Temperature': 'Mild', 'Humidity': 'High', 'Wind': 'Strong'}
+
+Initial score for class 'Yes' (Log(P(Yes))) = -0.441833
+Initial score for class 'No' (Log(P(No))) = -1.029619
+
+Processing feature: Day | Value: 14
+  Value '14' not found in likelihoods. Using smoothing.
+
+
+Processing feature: Outlook | Value: Rain
+  P(Outlook=Rain | Yes) = 0.333333
+  Updated score for class 'Yes' = -1.540445
+  P(Outlook=Rain | No) = 0.375000
+  Updated score for class 'No' = -2.010449
+
+Processing feature: Temperature | Value: Mild
+  P(Temperature=Mild | Yes) = 0.416667
+  Updated score for class 'Yes' = -2.415914
+  P(Temperature=Mild | No) = 0.375000
+  Updated score for class 'No' = -2.991278
+
+Processing feature: Humidity | Value: High
+  P(Humidity=High | Yes) = 0.363636
+  Updated score for class 'Yes' = -3.427515
+  P(Humidity=High | No) = 0.714286
+  Updated score for class 'No' = -3.327750
+
+Processing feature: Wind | Value: Strong
+  P(Wind=Strong | Yes) = 0.363636
+  Updated score for class 'Yes' = -4.439116
+  P(Wind=Strong | No) = 0.571429
+  Updated score for class 'No' = -3.887366
+
+Final Scores:
+  Class 'Yes': -4.439116
+  Class 'No': -3.887366
+
+Predicted class: No
+
+Actual class: No | Predicted class: No | Correct: True
+
+
+--------------------------------------------------
+| Instance |   Actual   | Predicted  | Correct  |
+--------------------------------------------------
+|    1     |     No     |     No     |   True   |
+|    2     |     No     |     No     |   True   |
+|    3     |    Yes     |    Yes     |   True   |
+|    4     |    Yes     |    Yes     |   True   |
+|    5     |    Yes     |    Yes     |   True   |
+|    6     |     No     |    Yes     |  False   |
+|    7     |    Yes     |    Yes     |   True   |
+|    8     |     No     |     No     |   True   |
+|    9     |    Yes     |    Yes     |   True   |
+|    10    |    Yes     |    Yes     |   True   |
+|    11    |    Yes     |    Yes     |   True   |
+|    12    |    Yes     |    Yes     |   True   |
+|    13    |    Yes     |    Yes     |   True   |
+|    14    |     No     |     No     |   True   |
+--------------------------------------------------
+
+Overall Accuracy: 0.93
+
+
+Results logged in Output/naive_bayes_log.txt

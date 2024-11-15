@@ -8,13 +8,24 @@ from collections import defaultdict
 def load_data(file_path):
     # Read the data from the specified CSV file and return it as a DataFrame
     print(f"\n--- Loading Data from {file_path} ---\n")
+    
     # Using pandas to read the CSV file and load it into a DataFrame
     df = pd.read_csv(file_path)
-    # Print the DataFrame to show the loaded data
+    
+    # Print the DataFrame to show the loaded data in the console
     print(df)
-    print("\nData loaded successfully.\n")
+    
+    # Open the output file and write the DataFrame to it
+    with open('Dataset/input_data.txt', 'w') as f:
+        # Writing the column headers
+        f.write(f"--- Loaded Data from {file_path} ---\n")
+        f.write(f"\n{df}\n")
+    
+    print("\nData loaded successfully and written to output file.\n")
+    
     # Return the DataFrame containing the loaded data
     return df
+
 
 # Calculate the prior probabilities for each class in the target variable
 def calculate_prior_probabilities(df):

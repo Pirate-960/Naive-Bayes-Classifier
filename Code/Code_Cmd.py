@@ -8,13 +8,24 @@ from collections import defaultdict
 def load_data(file_path):
     # Read the data from the specified CSV file and return it as a DataFrame
     print(f"\n--- Loading Data from {file_path} ---\n")
+    
     # Using pandas to read the CSV file and load it into a DataFrame
     df = pd.read_csv(file_path)
-    # Print the DataFrame to show the loaded data
+    
+    # Print the DataFrame to show the loaded data in the console
     print(df)
-    print("\nData loaded successfully.\n")
+    
+    # Open the output file and write the DataFrame to it
+    with open('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Dataset/input_data.txt', 'w') as f:
+        # Writing the column headers
+        f.write(f"--- Loaded Data from {file_path} ---\n")
+        f.write(f"\n{df}\n")
+    
+    print("\nData loaded successfully and written to output file.\n")
+    
     # Return the DataFrame containing the loaded data
     return df
+
 
 # Calculate the prior probabilities for each class in the target variable
 def calculate_prior_probabilities(df):
@@ -92,7 +103,7 @@ def train_naive_bayes(file_path):
     model = {"priors": priors, "likelihoods": likelihoods}
     
     # Save the model to a JSON file for future use
-    with open('Output/naive_bayes_model.json', 'w') as file:
+    with open('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Output/naive_bayes_model.json', 'w') as file:
         # Save with formatted JSON for readability
         json.dump(model, file, indent=4)  
     
@@ -103,7 +114,7 @@ def train_naive_bayes(file_path):
 def predict(instance):
     print("\n--- Making Prediction ---\n")
     # Load the model from the JSON file
-    with open('Output/naive_bayes_model.json', 'r') as file:
+    with open('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Output/naive_bayes_model.json', 'r') as file:
         model = json.load(file)
     
     # Extract prior probabilities and likelihoods from the model
@@ -168,7 +179,7 @@ def predict(instance):
     calculation_steps.append(final_result)
     
     # Write all calculation steps to the calculations file
-    with open('Output/naive_bayes_calculations.txt', 'a') as calc_file:
+    with open('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Output/naive_bayes_calculations.txt', 'a') as calc_file:
         calc_file.writelines(calculation_steps)
     
     # Return the predicted class and scores for further analysis
@@ -190,7 +201,7 @@ def cross_validate(file_path):
     log_lines.append("--------------------------------------------------")
     
     # Clear the calculations file before writing new content
-    with open('Output/naive_bayes_calculations.txt', 'w') as calc_file:
+    with open('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Output/naive_bayes_calculations.txt', 'w') as calc_file:
         calc_file.write("Detailed Calculation Steps for Each Instance\n")
         calc_file.write("===========================================\n")
     
@@ -237,7 +248,7 @@ def cross_validate(file_path):
         print(line)
     
     # Write the log lines to the log file
-    with open('Output/naive_bayes_log.txt', 'w') as log_file:
+    with open('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Output/naive_bayes_log.txt', 'w') as log_file:
         log_file.write("\n".join(log_lines))
     
     print("\nResults logged in Output/naive_bayes_log.txt\n")
@@ -250,7 +261,7 @@ if __name__ == "__main__":
     # Train the model and evaluate it using cross-validation
 
     # Train the model on the "Play Tennis" dataset
-    train_naive_bayes('Dataset/play_tennis.csv')
+    train_naive_bayes('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Dataset/play_tennis.csv')
 
     # Cross-validate the model on the "Play Tennis" dataset and log the results
-    cross_validate('Dataset/play_tennis.csv')
+    cross_validate('D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Dataset/play_tennis.csv')
