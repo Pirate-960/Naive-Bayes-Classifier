@@ -62,10 +62,13 @@ def calculate_likelihoods(df):
                 # Print the calculation with a detailed explanation
                 print(f"  P({feature}={value} | {cls}) = (count + 1) / (class_count + num_values)")
                 print(f"  = ({count} + 1) / ({class_counts[cls]} + {len(feature_values)}) = {smoothed_likelihood:.6f}")
-        print()  # Print a blank line for better readability
+        # Print a blank line for better readability
+        print()
     
     print("\nLikelihoods calculated successfully.\n")
-    return likelihoods  # Return the dictionary of likelihoods
+
+    # Return the dictionary of likelihoods
+    return likelihoods
 
 # Train the Naive Bayes classifier and save the model
 def train_naive_bayes(file_path):
@@ -108,11 +111,13 @@ def predict(instance):
     likelihoods = model["likelihoods"]
     
     print(f"Instance to predict: {instance}\n")
-    calculation_steps = []  # List to store calculation steps for the log file
+    # List to store calculation steps for the log file
+    calculation_steps = []
     calculation_steps.append("\n--- Making Prediction ---\n")
     calculation_steps.append(f"Instance to predict: {instance}\n")
     
-    scores = {}  # Dictionary to store the log scores for each class
+    # Dictionary to store the log scores for each class
+    scores = {}
     
     # Initialize the scores with the log of the prior probabilities
     for cls, prior in priors.items():
