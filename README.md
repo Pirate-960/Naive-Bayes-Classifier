@@ -65,6 +65,11 @@ The "Play Tennis" dataset is a small, categorical dataset used to determine if a
    ```bash
    python Code.py
    ```
+
+   **One Important Warning:**
+   - If You are Running the Classifier from Command Prompt -> Update all Input / Output File Paths To Absolute Path Format.
+   - If You are Running From VsCode - Enjoy - !
+
 2. **Output**:
    - The model will be trained on the "Play Tennis" dataset and saved to `Output/naive_bayes_model.json`.
    - Detailed calculation steps will be saved to `Output/naive_bayes_calculations.txt`.
