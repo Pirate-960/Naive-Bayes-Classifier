@@ -1,8 +1,3 @@
-Apologies for the confusion! Here's the **README file** content formatted properly for a Markdown file:
-
----
-
-```markdown
 # Naive Bayes Classifier from Scratch
 
 ## Introduction
@@ -16,16 +11,27 @@ This project implements a Naive Bayes classifier from scratch in Python, designe
 - Log detailed calculation steps and prediction results for transparency.
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Objectives](#objectives)
-3. [Dataset](#dataset)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Implementation Details](#implementation-details)
-7. [Performance Evaluation](#performance-evaluation)
-8. [Challenges and Solutions](#challenges-and-solutions)
-9. [Results](#results)
-10. [References](#references)
+- [Naive Bayes Classifier from Scratch](#naive-bayes-classifier-from-scratch)
+  - [Introduction](#introduction)
+  - [Objectives](#objectives)
+  - [Table of Contents](#table-of-contents)
+  - [Dataset](#dataset)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Implementation Details](#implementation-details)
+    - [1. **Naive Bayes Algorithm**](#1-naive-bayes-algorithm)
+    - [2. **Data Preparation**](#2-data-preparation)
+    - [3. **Model Training**](#3-model-training)
+    - [4. **Prediction Logic**](#4-prediction-logic)
+    - [5. **Cross-Validation**](#5-cross-validation)
+  - [Performance Evaluation](#performance-evaluation)
+  - [Challenges and Solutions](#challenges-and-solutions)
+    - [1. **Zero Probabilities**](#1-zero-probabilities)
+    - [2. **Handling Small Datasets**](#2-handling-small-datasets)
+    - [3. **Error Handling**](#3-error-handling)
+  - [Results](#results)
+  - [References](#references)
+  - [License](#license)
 
 ## Dataset
 The "Play Tennis" dataset is a small, categorical dataset used to determine if a game of tennis will be played based on weather conditions. The features include:
@@ -104,7 +110,7 @@ The Naive Bayes classifier is a probabilistic model based on Bayes' Theorem. It 
 - Checks are added to ensure the file paths are valid and the data has the necessary structure.
 
 ## Results
-- **Accuracy**: The model achieved an accuracy of **X%** (replace with your results) on the "Play Tennis" dataset using Leave-One-Out Cross-Validation.
+- **Accuracy**: The model achieved an accuracy of **93%** on the "Play Tennis" dataset using Leave-One-Out Cross-Validation.
 - **Logs**: Calculation steps and results are available in the `Output` directory for review.
 
 ## References
@@ -122,13 +128,3 @@ The Naive Bayes classifier is a probabilistic model based on Bayes' Theorem. It 
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
-```
-
----
-
-### Instructions
-- **Replace** any placeholders (like "your-repo") with your actual project or repository details.
-- **Update** the "Results" section with your actual accuracy and any findings from your experiments.
-- **Customize** as needed to match your specific project structure and implementation. 
-
-Let me know if you need further customization or assistance!
