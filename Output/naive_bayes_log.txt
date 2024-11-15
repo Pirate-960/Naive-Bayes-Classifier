@@ -20,7 +20,6 @@
 
 Overall Accuracy: 0.93
 
-
 Confusion Matrix:
 --------------------------------------------------
                   Predicted
@@ -30,8 +29,8 @@ Actual Yes  |    9    |    0    |
 Actual No   |    1    |    4    |
 --------------------------------------------------
 --------------------------------------------------
-True Positives (TP): 9
-True Negatives (TN): 4
+True Positives (TP):  9
+True Negatives (TN):  4
 False Positives (FP): 1
 False Negatives (FN): 0
 --------------------------------------------------

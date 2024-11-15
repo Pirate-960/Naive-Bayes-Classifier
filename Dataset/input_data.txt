@@ -1,4 +1,4 @@
---- Loaded Data from D:/Github Projects/Machine Learning/Naive-Bayes-Classifier/Dataset/play_tennis.csv ---
+--- Loaded Data from Dataset/play_tennis.csv ---
 
     Day   Outlook Temperature Humidity    Wind PlayTennis
 0     1     Sunny         Hot     High    Weak         No

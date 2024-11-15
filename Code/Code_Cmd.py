@@ -262,7 +262,7 @@ def cross_validate(file_path):
     log_lines.append(f"\nOverall Accuracy: {accuracy:.2f}\n")
     
     # Append the formatted confusion matrix to the log
-    log_lines.append("\nConfusion Matrix:")
+    log_lines.append("Confusion Matrix:")
     log_lines.append("--------------------------------------------------")
     log_lines.append("                  Predicted")
     log_lines.append("            |   Yes   |    No   |")
@@ -272,8 +272,8 @@ def cross_validate(file_path):
     log_lines.append("--------------------------------------------------")
 
     log_lines.append("--------------------------------------------------")
-    log_lines.append(f"True Positives (TP): {TP}")
-    log_lines.append(f"True Negatives (TN): {TN}")
+    log_lines.append(f"True Positives (TP):  {TP}")
+    log_lines.append(f"True Negatives (TN):  {TN}")
     log_lines.append(f"False Positives (FP): {FP}")
     log_lines.append(f"False Negatives (FN): {FN}")
     log_lines.append("--------------------------------------------------")
