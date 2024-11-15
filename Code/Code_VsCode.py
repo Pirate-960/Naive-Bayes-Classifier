@@ -189,6 +189,13 @@ def cross_validate(file_path):
     print("\n--- Cross-Validation ---\n")
     # Load the dataset
     df = load_data(file_path)
+
+    # Initialize counters for the confusion matrix
+    TP = 0  # True Positives
+    TN = 0  # True Negatives
+    FP = 0  # False Positives
+    FN = 0  # False Negatives
+
     # Counter for the number of correct predictions
     correct_predictions = 0
     # Total number of instances
@@ -208,6 +215,7 @@ def cross_validate(file_path):
     # Iterate over each instance in the dataset
     for index, row in df.iterrows():
         print(f"\n--- Instance {index + 1} ---")
+
         # Remove the current instance from the dataset to train the model
         # Use all other instances for training
         train_df = df.drop(index)
@@ -234,6 +242,16 @@ def cross_validate(file_path):
         log_line = f"| {index + 1:^8} | {actual_class:^10} | {predicted_class:^10} | {str(correct):^8} |"
         log_lines.append(log_line)
         
+        # Update the confusion matrix counters
+        if actual_class == "Yes" and predicted_class == "Yes":
+            TP += 1
+        elif actual_class == "No" and predicted_class == "No":
+            TN += 1
+        elif actual_class == "No" and predicted_class == "Yes":
+            FP += 1
+        elif actual_class == "Yes" and predicted_class == "No":
+            FN += 1
+
         if correct:
             # Increment the correct predictions counter
             correct_predictions += 1
@@ -243,6 +261,23 @@ def cross_validate(file_path):
     log_lines.append("--------------------------------------------------")
     log_lines.append(f"\nOverall Accuracy: {accuracy:.2f}\n")
     
+    # Append the formatted confusion matrix to the log
+    log_lines.append("\nConfusion Matrix:")
+    log_lines.append("--------------------------------------------------")
+    log_lines.append("                  Predicted")
+    log_lines.append("            |   Yes   |    No   |")
+    log_lines.append("------------|---------|---------|")
+    log_lines.append(f"Actual Yes  |  {TP:^6} |  {FN:^6} |")
+    log_lines.append(f"Actual No   |  {FP:^6} |  {TN:^6} |")
+    log_lines.append("--------------------------------------------------")
+
+    log_lines.append("--------------------------------------------------")
+    log_lines.append(f"True Positives (TP): {TP}")
+    log_lines.append(f"True Negatives (TN): {TN}")
+    log_lines.append(f"False Positives (FP): {FP}")
+    log_lines.append(f"False Negatives (FN): {FN}")
+    log_lines.append("--------------------------------------------------")
+
     # Print the log lines to the console
     for line in log_lines:
         print(line)
